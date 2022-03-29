@@ -3,6 +3,10 @@ var app = express();
 
 console.log("Hello World");
 
+app.get('/', (_, res) => {
+  res.send('Hello Express');
+});
+
 
 
 
