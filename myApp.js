@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 // Serve static files..
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 // Log hellow world to the console
 console.log("Hello World");
