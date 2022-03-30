@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 
 
 // Log hellow world to the console
@@ -11,6 +12,10 @@ console.log("Hello World");
 
 
 app
+  // Use body-parser for post requests
+  // parse application/x-www-form-urlencoded
+  .use(bodyParser.urlencoded({ extended: false }))
+
   // A middleware logger
   .use((req, _, next) => {
     console.log(req.method + ' ' + req.path + ' - ' + req.ip);
