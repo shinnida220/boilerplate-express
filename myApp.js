@@ -22,10 +22,13 @@ app
 
   // Middleware Chaining...
   .get('/now', (req, _, next) => {
-    req.time = new Date().toString();
+    const t = new Date();
+    req.initialTime = t.toString();
+    t.setSeconds(t.getSeconds() + 20);
+    req.time = t.toString();
     next();
   }, (req, res) => {
-    res.json({ now: req.time });
+    res.json({ before: req.initialTime, now: req.time });
   })
 
   // json route
