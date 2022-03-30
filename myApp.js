@@ -1,27 +1,33 @@
 var express = require('express');
 var app = express();
 
-// Serve static files..
-// Normal usage
-// app.use(express.static(__dirname + "/public"));
-
-// Assets at the /public route
-app.use("/public", express.static(__dirname + "/public"));
 
 // Log hellow world to the console
 console.log("Hello World");
 
-app.get('/json', (_, res) => {
-  res.json({ "message": "Hello json" });
-})
+// Serve static files..
+// Normal usage
+// app.use(express.static(__dirname + "/public"));
 
-app.get('/', (_, res) => {
-  // Send a static string response
-  // res.send('Hello Express');
 
-  // Respond with a file.
-  res.sendFile(__dirname + '/views/index.html');
-});
+app
+  // Assets at the /public route
+  .use("/public", express.static(__dirname + "/public"))
+
+  // json route
+  .get('/json', (_, res) => {
+    const text = process.env.MESSAGE_STYLE == 'uppercase' ? "HELLO JSON" : "Hello json";
+    res.json({ "message": text });
+  })
+
+  // index route
+  .get('/', (_, res) => {
+    // Send a static string response
+    // res.send('Hello Express');
+
+    // Respond with a file.
+    res.sendFile(__dirname + '/views/index.html');
+  });
 
 
 
