@@ -42,6 +42,13 @@ app
     res.json({ echo: req.params?.word });
   })
 
+  // Query params
+  .route('/name').get((req, res) => {
+    res.json({ name: req.query?.first + ' ' + req.query?.last });
+  }).post((req, res) => {
+
+  })
+
   // index route
   .get('/', (_, res) => {
     // Send a static string response
