@@ -39,7 +39,7 @@ app
 
   // Echo Server
   .get('/:word/echo', (req, res) => {
-    res.json({ word: req.params?.word });
+    res.json({ echo: req.params?.word });
   })
 
   // index route
