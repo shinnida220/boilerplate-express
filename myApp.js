@@ -11,6 +11,10 @@ app.use("/public", express.static(__dirname + "/public"));
 // Log hellow world to the console
 console.log("Hello World");
 
+app.get('/json', (_, res) => {
+  res.json({ "message": "Hello json" });
+})
+
 app.get('/', (_, res) => {
   // Send a static string response
   // res.send('Hello Express');
