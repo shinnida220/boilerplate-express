@@ -37,6 +37,11 @@ app
     res.json({ "message": text });
   })
 
+  // Echo Server
+  .get('/:word/echo', (req, res) => {
+    res.json({ word: req.params?.word });
+  })
+
   // index route
   .get('/', (_, res) => {
     // Send a static string response
