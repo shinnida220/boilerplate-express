@@ -28,7 +28,7 @@ app
     req.time = t.toString();
     next();
   }, (req, res) => {
-    res.json({ before: req.initialTime, now: req.time });
+    res.json({ before: req.initialTime, time: req.time });
   })
 
   // json route
