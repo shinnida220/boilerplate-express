@@ -11,6 +11,12 @@ console.log("Hello World");
 
 
 app
+  // A middleware logger
+  .use((req, _, next) => {
+    console.log(req.method + ' ' + req.path + ' - ' + req.ip);
+    next();
+  })
+
   // Assets at the /public route
   .use("/public", express.static(__dirname + "/public"))
 
