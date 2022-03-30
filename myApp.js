@@ -43,10 +43,14 @@ app
   })
 
   // Query params
-  .route('/name').get((req, res) => {
-    res.json({ name: req.query?.first + ' ' + req.query?.last });
-  }).post((req, res) => {
+  // .route('/name')
+  // .get((req, res) => {
+  //   res.json({ name: req.query?.first + ' ' + req.query?.last });
+  // }).post((req, res) => {
 
+  // })
+  .get('/name', (req, res) => {
+    res.json({ name: req.query?.first + ' ' + req.query?.last });
   })
 
   // index route
