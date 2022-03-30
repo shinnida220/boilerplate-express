@@ -20,6 +20,14 @@ app
   // Assets at the /public route
   .use("/public", express.static(__dirname + "/public"))
 
+  // Middleware Chaining...
+  .get('/now', (req, _, next) => {
+    req.time = new Date().toString();
+    next();
+  }, (req, res) => {
+    res.json({ now: req.time });
+  })
+
   // json route
   .get('/json', (_, res) => {
     const text = process.env.MESSAGE_STYLE == 'uppercase' ? "HELLO JSON" : "Hello json";
